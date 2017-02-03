@@ -1,0 +1,58 @@
+//头文件声明
+#import <Cocoa/Cocoa.h>
+
+@interface Person : NSObject
+
+@property NSString *name;
+@property int age;
+@property float score;
+
+//类方法
++(int)persionWithA1:(float)a1 andA2:(NSString*) a2;
+
+//对象方法
+-(int)persionWithB1:(float)b1 andB2:(NSString*) b2;
+
+-(void)fun1:(float)a1 andName:(NSString*)name andScore:(float) score;
+
+@end
+
+
+//实现文件
+#import "Person.h"
+
+@implementation Person
+
+//类方法
++(int)persionWithA1:(float)a1 andA2:(NSString*) a2{
+    NSLog(@"persionWithA1 called");
+    NSLog(@"a1:%f, a2:%@", a1, a2);
+    return 0;
+}
+
+//对象方法
+-(int)persionWithB1:(float)b1 andB2:(NSString*) b2{
+    NSLog(@"persionWithB1 called");
+    NSLog(@"a1:%f, a2:%@", b1, b2);
+    return 0;
+}
+
+-(void)fun1:(float)a1 andName:(NSString*)name andScore:(float) score{
+    NSLog(@"fun1 called");
+    NSLog(@"a1:%f name:%@ score:%f", a1, name, score);
+}
+
+@end
+
+//调用和实现
+int main(int argc, const char * argv[]) {
+    Person *per1 = [[Person alloc]init];
+//    [per1 persionWithB1:10 andB2:@"你好"];
+    
+//                    -(int)persionWithB1:(float)b1 andB2:(NSString*) b2;
+    
+//    [Person persionWithA1:20 andA2:@"哈哈哈"];
+    
+    [per1 fun1:100 andName:@"韩志强" andScore:99.99];
+    return 0;
+}
