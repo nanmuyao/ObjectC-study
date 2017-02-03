@@ -1,0 +1,46 @@
+OC中的类也是一种构造数据类型，但是进行了一些扩展，类的成员不但可以是变量，还可以是函数；通过类定义出来的变量也有特定的称呼，叫做“对象”。例如：
+#import <Foundation/Foundation.h>
+
+//声明类Student
+@interface Student : NSObject  //通过@interface关键字来声明类
+//类所包含的变量
+@property NSString *name;
+@property int age;
+@property float score;
+//类所包含的函数
+-(void)display;
+@end  //使用@end关键字结束类的声明
+
+//实现在类中声明的函数
+@implementation Student  //通过@implementation关键字来实现类中的函数
+-(void)display{
+    NSLog(@"%@的年龄是 %d，成绩是 %f", self.name, self.age, self.score);
+}
+@end  //使用@end关键字结束类中函数的实现
+
+int main(int argc, const char * argv[]) {
+    //通过类来定义变量stu1，即创建对象stu1
+    Student *stu1 = [[Student alloc] init];  //alloc函数为对象分配内存空间，init函数会初始化对象
+    //操作类的成员
+    stu1.name = @"小明";
+    stu1.age = 15;
+    stu1.score = 92.5;
+    //调用类的函数
+    [stu1 display];
+
+    return 0;
+}
+运行结果：
+小明的年龄是 15，成绩是 92.500000
+
+第4~11行代码用来声明一个类。interface是“接口”的意思，OC使用@interface来声明一个类；Student是类的名称；NSObject表示派生自哪个类，这一点大家暂时不必急于理解。
+
+在OC中，类所包含的变量和函数都有特定的称呼，变量被称为属性（Property），函数被称为方法（Method），属性和方法统称为类的成员（Member）。从上面的代码可以看出，声明类的属性要使用@property关键字，而声明类的方法不需要使用任何关键字。
+
+方法
+
+
+
+
+
+property是“属性”的意思，OC使用@property来声明类所包含的变量。在OC中，类所包含的变量
